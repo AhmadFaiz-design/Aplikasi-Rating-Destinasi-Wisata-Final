@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "391848145280",
+    "project_id": "faiz-s-project",
+    "storage_bucket": "faiz-s-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391848145280:android:7581a2ff3c4896889b1165",
+        "android_client_info": {
+          "package_name": "com.example.firebase_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEVSjxlqbHkoQMkUrLEcoyKmc7x7rwTrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391848145280:android:97e44fb73dc5bd9e9b1165",
+        "android_client_info": {
+          "package_name": "com.example.menu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEVSjxlqbHkoQMkUrLEcoyKmc7x7rwTrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

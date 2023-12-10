@@ -1,0 +1,412 @@
+GridView.builder(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200, childAspectRatio: 1 / 2),
+          itemCount: 6,
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: const Color.fromARGB(255, 44, 44, 44)),
+              margin: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(6),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 300,
+                    width: 200,
+                    child: ClipRRect(
+                      child: Image.asset(daftarPopuler[index].gambar,
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4, left: 4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          daftarPopuler[index].nama_Tempat,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  daftarPopuler[index].lokasi_tempat,
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                                Text(
+                                  daftarPopuler[index].tanggal,
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w200),
+                                )
+                              ],
+                            ),
+                            Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: 1,
+                                        color: const Color.fromARGB(
+                                            242, 254, 250, 133)),
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Center(
+                                  child: Text(
+                                    daftarPopuler[index].Rating,
+                                    style: const TextStyle(
+                                        color:
+                                            Color.fromARGB(242, 254, 250, 133)),
+                                  ),
+                                ))
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }),
+
+  class aplikasi extends StatelessWidget {
+  const aplikasi({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 15, top: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          //PESAWAT
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromARGB(242, 254, 250, 133)),
+                  child: SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: Icon(
+                      Icons.flight,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 8),
+                const Text('Flight', style: TextStyle(color: Colors.white))
+              ],
+            ),
+          ),
+          //KERETA
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color.fromARGB(242, 254, 250, 133),
+                  ),
+                  child: SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: Icon(
+                      Icons.train,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 8),
+                const Text("Train", style: TextStyle(color: Colors.white))
+              ],
+            ),
+          ),
+          //TAXI
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromARGB(242, 254, 250, 133)),
+                  child: SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: Icon(
+                      Icons.local_taxi,
+                      size: 30,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 8),
+                const Text("Taxi", style: TextStyle(color: Colors.white))
+              ],
+            ),
+          ),
+          //SEARCH
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Kategori()));
+            },
+            child: Container(
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Color.fromARGB(255, 174, 234, 251)),
+                    child: SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    'Search',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+POPULER (REKOMENDASI)
+Container(
+      height: 185,
+      padding: EdgeInsets.only(left: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 25,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => kategoriPopuler()));
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Recommends',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                  ),
+                  Icon(
+                    Icons.navigate_next_rounded,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 185,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: daftarPopuler.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => detailPopuler(
+                                    isiPopuler: daftarPopuler[index])));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 10),
+                        child: Column(
+                          children: [
+                            Stack(
+                              children: [
+                                SizedBox(
+                                  height: 139,
+                                  width: 165,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                        daftarPopuler[index].gambar,
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(left: 8),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        '⭐' + daftarPopuler[index].Rating,
+                                        style: TextStyle(color: Colors.white),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            Text(
+                              daftarPopuler[index].nama_Tempat,
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white),
+                            ),
+                            Text(
+                              daftarPopuler[index].lokasi_tempat,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ));
+                }),
+          )
+        ],
+      ),
+    );
+
+ListView(
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 20, right: 20, top: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: 130,
+                      height: 180,
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            daftarProfil[0].gambar,
+                            fit: BoxFit.cover,
+                          )),
+                    ),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    Column(
+                      children: [
+                        const Text("WEL-",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.w900)),
+                        const Text("COME",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.w900)),
+                        const Text("BACK",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.w900)),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 48,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => profileSocmed()));
+                  },
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 60,
+                        width: double.infinity,
+                          decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Color.fromRGBO(65,65,70,1)
+                          ),
+                        child: Center(
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 16,
+                              ),
+                              const Text("Social Media", style: TextStyle(
+                                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600
+                              ),),
+                              SizedBox(width: 200),
+                              Icon(Icons.arrow_right_alt_rounded, color: Colors.white,)
+                            ],
+                          ),
+                        ),
+                        ),
+                    ],
+                  )
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                Text(daftarProfil[0].nama , style: TextStyle(
+                  color: Colors.white, fontSize: 34, fontWeight: FontWeight.w800
+                ),),
+                SizedBox(
+                  height: 16,
+                ),
+                Text("- " + daftarProfil[0].NIM , style: TextStyle(
+                  color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500
+                ),),
+                Text("- " + daftarProfil[0].asal , style: TextStyle(
+                  color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500
+                ),),
+                Text("- " + daftarProfil[0].tanggal_lahir , style: TextStyle(
+                  color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500
+                ),),
+                SizedBox(
+                  height: 21,
+                ),
+                const Text("Catatan: ", style: TextStyle(
+                  color: Colors.white
+                ),),
+                SizedBox(height: 10,),
+                const Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et nibh in libero iaculis scelerisque nec a justo. Etiam blandit nisi et ipsum venenatis, ut placerat tellus condimentum. Praesent porttitor enim mauris, luctus fermentum lorem suscipit ac. Nulla quis tellus at erat imperdiet vulputate quis mollis lorem. Aenean placerat metus ligula, eget consectetur orci laoreet at. Donec facilisis erat justo, et venenatis justo luctus eget. Integer egestas nunc non neque tincidunt ultricies. Donec efficitur quis turpis ac commodo. Etiam at nisl tempor, maximus diam ac, facilisis purus.Quisque a velit at orci dictum auctor. Cras eu venenatis dui. Nunc at neque pellentesque mauris mattis molestie a sed nisi. Nunc at feugiat diam. Integer pulvinar justo nibh. Nunc a aliquet purus, at sollicitudin leo. Donec ipsum dui, finibus nec sapien vitae, viverra porttitor nibh. Vivamus tempus orci eu arcu mollis elementum. Praesent aliquam elit sit amet varius tincidunt. Fusce vel enim justo. Vestibulum pretium velit et rutrum ultrices. Sed facilisis ex placerat, tempor nisl eu, placerat tellus. Nullam porta pellentesque urna a convallis. Mauris non pharetra tellus, tempus imperdiet dui. Fusce consectetur nunc non facilisis interdum.: ", style: TextStyle(
+                  color: Colors.white,
+                ), textAlign: TextAlign.justify,)
+              ],
+            ),
+          )
+        ],
+      ),
